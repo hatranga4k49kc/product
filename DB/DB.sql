@@ -1,0 +1,24 @@
+CREATE DATABASE  `product_1`DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `product_1`;
+
+CREATE TABLE IF NOT EXISTS `product`(
+`id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+`name` VARCHAR(255) NOT NULL UNIQUE,
+`price` INT(11) NOT NULL,
+`amount` INT(11) NOT NULL,
+`intro` LONGTEXT NOT NULL,
+`date` DATETIME NOT NULL,
+`id_item` INT(11) NOT NULL
+
+
+);
+
+CREATE TABLE IF NOT EXISTS `items`(
+`id` INT(11) PRIMARY KEY AUTOINCREMENT,
+`name` VARCHAR(255) NOT NULL,
+
+);
+
+ALTER TABLE `product`
+ADD CONSTRAINT `fk_product`
+FOREIGN KEY (`id_item`) REFERENCES `items` (`id`)
